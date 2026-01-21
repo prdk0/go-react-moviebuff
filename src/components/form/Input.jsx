@@ -6,7 +6,7 @@ const Input = forwardRef((props, ref) => {
             <label htmlFor={props.name} className="form-label">
                 {props.title}
             </label>
-            <input 
+            <input
                 type={props.type}
                 className={props.className}
                 id={props.name}
