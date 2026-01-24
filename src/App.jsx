@@ -29,11 +29,12 @@ function App() {
   }
 
   const callRefreshToken = () => {
-    const requestOptions = {
+    const fetchRefresh = async () => {
+      let  requestOptions = {
         method: "GET",
         credentials: "include",
       }
-      fetch(`/api/refresh`, requestOptions)
+      await fetch(`/api/refresh`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data.access_token) {
@@ -43,6 +44,8 @@ function App() {
       .catch(error => {
         console.log("user is not logged in");
       })
+    }
+    fetchRefresh();
   }
 
   const toggleRefresh = useCallback((status) => {
