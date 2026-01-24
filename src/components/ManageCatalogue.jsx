@@ -5,14 +5,13 @@ import { Link, useNavigate, useOutletContext } from "react-router-dom";
 const ManageCatalogue = () => {
      const [movies, setMovies] = useState([]);
      const {jwtToken } = useOutletContext();
-     const navigate = useNavigate();
+     const navigate = useNavigate();    
 
     useEffect( () => {
-        if (jwtToken === "") {
-                navigate("/login");
-                return
-            } 
-        const fetchData = async () => {
+        const fetchData = async () => {        
+             if (jwtToken === "") {            
+                return navigate("/login");
+            }
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
         headers.append("Authorization", "Bearer " + jwtToken);
