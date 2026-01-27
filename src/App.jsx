@@ -49,18 +49,13 @@ function App() {
   }
 
   const toggleRefresh = useCallback((status) => {
-       console.log("clicked");
     if (status) {
-      console.log("turning on ticking");
       let i  = setInterval(() => {
          callRefreshToken();
       }, 600000);
       setTickInterval(i);
-      console.log("setting tick interval to", i);
 
     } else {
-      console.log("turning off ticking");
-      console.log("turning off tickInterval", tickInterval);
       setTickInterval(null);
       clearInterval(tickInterval);
     }
