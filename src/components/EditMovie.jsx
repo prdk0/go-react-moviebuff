@@ -144,7 +144,9 @@ const EditMovie = () => {
         // we need to covert the values in JSON for release date (to date)
         // and for runtime to int
 
-        requestBody.release_date = new Date(movie.release_date);
+        let curret_date = new Date(movie.release_date);
+        const formattedUTC = curret_date.toISOString();
+        requestBody.release_date = formattedUTC;
         requestBody.runtime = parseInt(movie.runtime, 10);
 
         let requestOptions = {
