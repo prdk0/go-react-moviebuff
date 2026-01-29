@@ -41,7 +41,7 @@ const Movie = () => {
 
             {movie.image !== "" &&
                 <div className="mb-3">
-                    <img src={`https://image.tmdb.org/t/p/w200${movie.image}`} alt="poster" />
+                    <img src={`https://image.tmdb.org/t/p/w200/${movie.image}`} alt="poster" />
                 </div>
             }
 
