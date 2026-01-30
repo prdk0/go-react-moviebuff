@@ -26,8 +26,8 @@ const OneGenre = () => {
         fetch(`/api/movies/genres/${id}`, requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                if (data.error) {
-                    console.log(data.message);
+                if (!data) {
+                    setMovies([]);
                 } else {
                     setMovies(data);
                 }
@@ -42,7 +42,7 @@ const OneGenre = () => {
 
             <hr />
 
-            {movies ? (
+            {movies.length > 0 ? (
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
