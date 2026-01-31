@@ -27,7 +27,7 @@ const OneGenre = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (!data) {
-                    setMovies([]);
+                    setMovies(data);
                 } else {
                     setMovies(data);
                 }
@@ -42,7 +42,7 @@ const OneGenre = () => {
 
             <hr />
 
-            {movies.length > 0 ? (
+            {movies? (
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
